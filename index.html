@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte, Futuro Sustentável - Rastreabilidade</title>
+    <style>
+        :root {
+            --primary: #1b4332;
+            --primary-light: #2d6a4f;
+            --accent: #52b788;
+            --bg-dark: #121212;
+            --bg-light: #f8f9fa;
+            --text-dark: #212529;
+            --text-light: #ffffff;
+            --gray: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: var(--text-light);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+
+        /* Seção Introdução */
+        .intro-section {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .intro-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        /* Infográfico Interativo */
+        .infographic-title {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .journey-card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-light);
+            cursor: pointer;
+        }
+
+        .journey-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-top-color: var(--accent);
+        }
+
+        .journey-step {
+            background: var(--primary);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+            font-weight: bold;
+        }
+
+        .journey-card h3 {
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        /* Área de Simulação Compartimentada */
+        .simulator-section {
+            background: var(--primary);
+            color: var(--text-light);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .simulator-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .simulator-text h2 {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .simulator-text p {
+            margin-bottom: 1.5rem;
+            color: #e0e0e0;
+        }
+
+        .btn-simulate {
+            background-color: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .btn-simulate:hover {
+            background-color: #74c69d;
+        }
+
+        /* Mockup do Celular */
+        .phone-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            min-width: 300px;
+        }
+
+        .phone-mockup {
+            width: 280px;
+            height: 530px;
+            background: #1e1e1e;
+            border: 8px solid #2d2d2d;
+            border-radius: 32px;
+            padding: 15px;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .phone-screen {
+            background: #ffffff;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .phone-header {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .qr-placeholder {
+            width: 130px;
+            height: 130px;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--gray);
+            font-size: 0.8rem;
+            color: var(--gray);
+            text-align: center;
+            padding: 10px;
+        }
+
+        .data-display {
+            width: 100%;
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .data-item {
+            background: var(--bg-light);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            border-left: 3px solid var(--accent);
+            font-size: 0.85rem;
+        }
+
+        .data-item strong {
+            color: var(--primary);
+        }
+
+        /* Rodapé de Conversão */
+        .footer-cta {
+            background-color: #e9ecef;
+            text-align: center;
+            padding: 4rem 1rem;
+            margin-top: 5rem;
+            border-radius: 8px;
+        }
+
+        .footer-cta h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-cta p {
+            max-width: 600px;
+            margin: 0 auto 1.5rem auto;
+            color: var(--gray);
+        }
+
+        /* Animação */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .simulator-section { padding: 2rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>AGRO FORTE, FUTURO SUSTENTÁVEL</h1>
+        <p>TECNOLOGIA • TRANSPARÊNCIA • VALOR</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="intro-section">
+            <h2>Rastreabilidade Total: A Origem que Gera Valor</h2>
+            <p>
+                O consumidor moderno não exige apenas qualidade, ele exige a verdade. Através de tecnologias imutáveis como o <strong>Blockchain</strong>, transformamos práticas ambientais corretas em dados auditáveis, abrindo as portas dos mercados globais mais exigentes.
+            </p>
+        </section>
+
+        <h2 class="infographic-title">A Jornada do Dado: Do Campo à Mesa</h2>
+        <section class="journey-grid">
+            <div class="journey-card">
+                <div class="journey-step">1</div>
+                <h3>Produção</h3>
+                <p>O plantio ou manejo é registrado com coordenadas geográficas que provam a ausência de desmatamento ilegal.</p>
+            </div>
+            <div class="journey-card">
+                <div class="journey-step">2</div>
+                <h3>Certificação</h3>
+                <p>Auditorias e dados de satélite validam os índices de preservação e regeneração do solo automaticamente.</p>
+            </div>
+            <div class="journey-card">
+                <div class="journey-step">3</div>
+                <h3>Logística</h3>
+                <p>Cada lote recebe uma assinatura digital em blockchain. O transporte é monitorado sem chance de adulteração.</p>
+            </div>
+            <div class="journey-card">
+                <div class="journey-step">4</div>
+                <h3>Gôndola</h3>
+                <p>O produto final exibe um código único. O valor do respeito à terra agora está visível e acessível a qualquer um.</p>
+            </div>
+        </section>
+
+        <section class="simulator-section">
+            <div class="simulator-text">
+                <h2>Simulador de Transparência</h2>
+                <p>Imagine o cliente final em um supermercado na Europa ou Ásia apontando o smartphone para o seu produto. Clique no botão abaixo para simular a leitura do QR Code da fazenda e veja os dados de conformidade que o mercado internacional consome.</p>
+                <button class="btn-simulate" onclick="simularLeitura()">Simular Escaneamento</button>
+            </div>
+
+            <div class="phone-container">
+                <div class="phone-mockup">
+                    <div class="phone-screen" id="phoneScreen">
+                        <div class="phone-header" id="phoneHeader">Rastreabilidade AgroVerde</div>
+                        
+                        <div class="qr-placeholder" id="qrCodeBox">
+                            [ QR Code do Produto ]
+                        </div>
+                        
+                        <div class="data-display" id="dataDisplay">
+                            <div class="data-item"><strong>Propriedade:</strong> Fazenda Terra Viva</div>
+                            <div class="data-item"><strong>Origem:</strong> Mato Grosso, Brasil</div>
+                            <div class="data-item"><strong>Status Ambiental:</strong> 100% Regularizado</div>
+                            <div class="data-item"><strong>Pegada de Carbono:</strong> Neutra (Retenção Ativa)</div>
+                            <div class="data-item"><strong>Contrato Blockchain:</strong> ox71...A8f9</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="footer-cta">
+            <h2>Sua propriedade está pronta para o futuro?</h2>
+            <p>Unir alta produtividade à conservação ambiental não é mais uma escolha, é o caminho para a rentabilidade global estável.</p>
+            <button class="btn-simulate" style="background-color: var(--primary); color: white;">Conectar Minha Fazenda ao Futuro</button>
+        </section>
+
+    </div>
+
+    <script>
+        function simularLeitura() {
+            const qrBox = document.getElementById('qrCodeBox');
+            const dataDisplay = document.getElementById('dataDisplay');
+            const phoneHeader = document.getElementById('phoneHeader');
+            const phoneScreen = document.getElementById('phoneScreen');
+
+            // Simula o efeito de "leitura" limpando o QR Code e trazendo as informações
+            qrBox.style.display = 'none';
+            phoneScreen.style.justify = 'flex-start';
+            phoneScreen.style.paddingTop = '1.5rem';
+            phoneHeader.style.display = 'block';
+            dataDisplay.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastreabilidade Avançada e Governança Ambiental no Agro</title>
+    <style>
+        :root {
+            --primary: #132a13;
+            --primary-light: #31572c;
+            --accent: #4f772d;
+            --accent-bright: #90a955;
+            --bg-dark: #111a10;
+            --bg-light: #f4f6f4;
+            --text-dark: #212529;
+            --text-light: #ffffff;
+            --gray: #5c675c;
+            --border-color: #e2e8e2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--text-light);
+            padding: 4rem 1rem;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-bright);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            color: var(--accent-bright);
+            font-weight: 600;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+
+        /* Grid de Estatísticas Oficiais */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .stat-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-weight: bold;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-source {
+            font-size: 0.75rem;
+            color: var(--gray);
+            display: block;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        /* Seção Teórica e Científica */
+        .content-section {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            border: 1px solid var(--border-color);
+        }
+
+        .content-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 15px;
+        }
+
+        .content-section p {
+            font-size: 1.05rem;
+            color: #3a413a;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        /* Arquitetura Blockchain */
+        .tech-box {
+            background: #f8faf8;
+            border: 1px dashed var(--accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-box h4 {
+            color: var(--primary-light);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Infográfico Linha do Tempo */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto 5rem auto;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            padding: 1.5rem 2rem;
+            background: #ffffff;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--primary-light);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease;
+        }
+
+        .timeline-item:hover {
+            transform: scale(1.01);
+            border-left-color: var(--accent-bright);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        .timeline-item h3 {
+            color: var(--primary);
+            margin: 0.3rem 0 0.8rem 0;
+        }
+
+        /* Painel Simulador Auditável */
+        .simulator-container {
+            background: linear-gradient(135deg, var(--primary), #1a3a1a);
+            color: var(--text-light);
+            border-radius: 16px;
+            padding: 3.5rem 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .simulator-info {
+            flex: 1.2;
+            min-width: 320px;
+        }
+
+        .simulator-info h2 {
+            color: var(--accent-bright);
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .simulator-info ul {
+            margin: 1.5rem 0;
+            padding-left: 20px;
+        }
+
+        .simulator-info li {
+            margin-bottom: 0.8rem;
+            color: #d1ddd1;
+        }
+
+        .btn-action {
+            background-color: var(--accent-bright);
+            color: var(--primary);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.05rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(144, 169, 85, 0.3);
+        }
+
+        .btn-action:hover {
+            background-color: #a3bf65;
+            transform: translateY(-2px);
+        }
+
+        /* Mockup do Dispositivo de Auditoria */
+        .device-wrapper {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            min-width: 300px;
+        }
+
+        .audit-device {
+            width: 300px;
+            height: 550px;
+            background: #1a1a1a;
+            border: 10px solid #2d2d2d;
+            border-radius: 36px;
+            padding: 18px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .device-screen {
+            background: #ffffff;
+            width: 100%;
+            height: 100%;
+            border-radius: 22px;
+            overflow-y: auto;
+            color: var(--text-dark);
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .screen-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .scan-status {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .ledger-data {
+            display: none;
+        }
+
+        .block-hash {
+            font-family: monospace;
+            font-size: 0.7rem;
+            background: #e9ece9;
+            padding: 4px;
+            border-radius: 4px;
+            word-break: break-all;
+            margin-bottom: 10px;
+            color: var(--primary-light);
+        }
+
+        .audit-row {
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #f0f2f0;
+            padding-bottom: 4px;
+        }
+
+        .audit-row span {
+            display: block;
+            color: var(--gray);
+            font-size: 0.75rem;
+        }
+
+        /* Rodapé Institucional */
+        footer {
+            background-color: var(--primary);
+            color: #a3b1a3;
+            padding: 4rem 1rem 2rem 1rem;
+            margin-top: 5rem;
+            font-size: 0.9rem;
+            border-top: 4px solid var(--accent);
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #244224;
+        }
+
+        .footer-col h3 {
+            color: var(--text-light);
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col a {
+            color: #a3b1a3;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-bright);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .content-section { padding: 1.5rem; }
+            .simulator-container { padding: 2rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Sistemas de Rastreabilidade e Criptografia do Campo</h1>
+        <p>A conformidade socioambiental auditável como passaporte para o mercado soberano e transações globais de alta fidelidade.</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">20% a 30%</div>
+                <div class="stat-label">Ágio sobre Preço de Commodities</div>
+                <p style="font-size: 0.85rem; color: var(--gray);">Valorização média estimada para grãos e proteínas com rastreabilidade de origem ponta a ponta.</p>
+                <span class="stat-source">Estudos de Mercado Internacional</span>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Conformidade com EUDR</div>
+                <p style="font-size: 0.85rem; color: var(--gray);">Garantia legal exigida pelo Regulamento Antidesmatamento Europeu para importação.</p>
+                <span class="stat-source">União Europeia</span>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">0%</div>
+                <div class="stat-label">Risco de Adulteração de Dados</div>
+                <p style="font-size: 0.85rem; color: var(--gray);">A arquitetura distribuída impede a modificação retroativa de relatórios de satélite ou vistorias.</p>
+                <span class="stat-source">Criptografia Blockchain</span>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Governança Tecnológica e o Fim do Greenwashing</h2>
+            <p>
+                A consolidação de marcas sustentáveis no ecossistema agrário contemporâneo exige a migração de relatórios textuais subjetivos para plataformas estruturadas em dados matemáticos imutáveis. O mercado institucional não aceita mais autodeclarações. A governança corporativa moderna adota criptografia descentralizada para assegurar que cada saca exportada respeite integralmente os limites territoriais protegidos e o Código Florestal (Lei nº 12.651/12).
+            </p>
+            <p>
+                O monitoramento georreferenciado integrado cruza, em tempo real, as coordenadas poligonais dos talhões de produção com dados públicos e privados do Cadastro Ambiental Rural (CAR). O resultado dessa verificação é encapsulado em transações invioláveis.
+            </p>
+
+            <div class="tech-box">
+                <h4>Arquitetura Utilizada: Consórcios Permissionados e Smart Contracts</h4>
+                <p style="font-size: 0.95rem; color: var(--gray); margin-bottom: 0;">
+                    Em vez de redes abertas públicas voláteis, o agronegócio de alta precisão baseia-se em redes permissionadas (ex: Hyperledger Fabric ou nós customizados do Ethereum). Os <em>Smart Contracts</em> (contratos inteligentes) executam de forma automatizada: caso as imagens de satélite capturem supressão vegetal não autorizada em uma coordenada, a chave criptográfica de exportação do lote é sumariamente revogada, blindando indústrias e fundos de investimento parceiros.
+                </p>
+            </div>
+        </section>
+
+        <h2 style="text-align: center; color: var(--primary); margin-bottom: 2rem;">Etapas do Protocolo de Validação</h2>
+        <section class="timeline">
+            
+            <div class="timeline-item">
+                <div class="timeline-date">Fase 1: Geomensura e Vetorização</div>
+                <h3>Mapeamento Perimetral das Propriedades</h3>
+                <p>Uso de RTK e sensoriamento remoto de alta órbita para delimitação das Áreas de Preservação Permanente (APP) e Reserva Legal. O perímetro gera uma assinatura digital única vinculada à matrícula do imóvel.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Fase 2: Monitoramento Operacional Diário</div>
+                <h3>Coleta Descentralizada IoT</h3>
+                <p>Sensores acoplados ao maquinário agrícola registram a dosagem e aplicação exata de insumos biológicos e defensivos autorizados, registrando o histórico químico diretamente no banco de dados distribuído.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Fase 3: Tokenização e Geração de Lote</div>
+                <h3>Emissão do Passaporte Digital do Produto</h3>
+                <p>No momento da colheita e recepção nos silos, os dados agregados passam por funções de dispersão criptográfica (Hashing), criando um token de rastreabilidade indissociável da carga física física durante o transporte.</p>
+            </div>
+
+        </section>
+
+        <section class="simulator-container">
+            <div class="simulator-info">
+                <h2>Verificador de Ledger Distribuído</h2>
+                <p>Execute uma simulação criptográfica real de checagem. O algoritmo irá ler o bloco de cadeia pública fictício, validando as chaves de segurança geradas pelas agências de monitoramento aeroespacial e agências estatais.</p>
+                <p>Este sistema assegura:</p>
+                <ul>
+                    <li>Validação automática do CAR (Cadastro Ambiental Rural)</li>
+                    <li>Certificação de Carbono Neutro com carimbo de tempo (Timestamping)</li>
+                    <li>Transparência jurídica absoluta para traders internacionais</li>
+                </ul>
+                <button class="btn-action" onclick="executarAuditoria()">Iniciar Auditoria Digital</button>
+            </div>
+
+            <div class="device-wrapper">
+                <div class="audit-device">
+                    <div class="device-screen" id="screen">
+                        <div class="screen-title">Consola de Compliance V1.04</div>
+                        
+                        <div id="statusPlaceholder" class="scan-status">
+                            Aguardando requisição de bloco operacional...
+                        </div>
+
+                        <div id="ledgerData" class="ledger-data">
+                            <div style="font-size: 0.75rem; font-weight: bold; color: #2b9348; margin-bottom: 5px;">✓ BLOCO AUTENTICADO</div>
+                            
+                            <div class="block-hash" id="hashText">SHA-256: ...</div>
+
+                            <div class="audit-row">
+                                <span>PRODUTOR / RAZÃO SOCIAL</span>
+                                <strong id="produtor">Processando...</strong>
+                            </div>
+                            <div class="audit-row">
+                                <span>COORDENADAS CENTRÓIDE</span>
+                                <strong id="coordenadas">Processando...</strong>
+                            </div>
+                            <div class="audit-row">
+                                <span>ÍNDICE DE PRESERVAÇÃO ATIVA</span>
+                                <strong id="preservacao">Processando...</strong>
+                            </div>
+                            <div class="audit-row">
+                                <span>EMISSÃO CO₂ EQUIVALENTE</span>
+                                <strong style="color: #2b9348;">Líquido Negativo (Sequestro Ativo)</strong>
+                            </div>
+                            <div class="audit-row">
+                                <span>SITUAÇÃO DO CAR</span>
+                                <strong style="color: #2b9348;">Regularizado - Sem Sobreposições</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Bases Legais e Diretrizes</h3>
+                <ul>
+                    <li><a href="#">Código Florestal Brasileiro (Lei 12.651/12)</a></li>
+                    <li><a href="#">Regulamento Antidesmatamento (EUDR 2023/1115)</a></li>
+                    <li><a href="#">Diretrizes de Governança ESG para o Campo</a></li>
+                    <li><a href="#">Metodologias de Crédito de Carbono Verra / Gold Standard</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Fontes de Dados Integradas</h3>
+                <ul>
+                    <li><a href="#">Imagens de Satélite PRODES / INPE</a></li>
+                    <li><a href="#">Sistema Nacional de Cadastro Ambiental Rural</a></li>
+                    <li><a href="#">Dados Meteorológicos Oficiais</a></li>
+                    <li><a href="#">Bancos de Dados Georreferenciados Estaduais</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Finalidade do Portal</h3>
+                <p style="font-size: 0.85rem; line-height: 1.4;">Este ambiente é de caráter técnico e educacional, focado em ilustrar a viabilidade prática da integração entre criptografia avançada, governança sustentável e competitividade econômica no agronegócio global.</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Agro Forte, Futuro Sustentável. Desenvolvido sob critérios de transparência e integridade de dados.
+        </div>
+    </footer>
+
+    <script>
+        function executarAuditoria() {
+            const placeholder = document.getElementById('statusPlaceholder');
+            const dataLayer = document.getElementById('ledgerData');
+            const hashTxt = document.getElementById('hashText');
+            
+            // Elementos de dados dinâmicos
+            document.getElementById('produtor').innerText = "Consórcio Agrícola Vertente Sul S.A.";
+            document.getElementById('coordenadas').innerText = "16°24'21.2\"S 54°38'02.4\"W";
+            document.getElementById('preservacao').innerText = "42,8% da área total (Excede Mínimo Legal)";
+
+            placeholder.innerHTML = "🔗 Conectando ao nó descentralizado...<br>Buscando assinaturas de tempo...";
+            
+            setTimeout(() => {
+                placeholder.innerHTML = "🧮 Computando hashes criptográficos...<br>Verificando sobreposição de imagens...";
+                
+                setTimeout(() => {
+                    placeholder.style.display = 'none';
+                    dataLayer.style.display = 'block';
+                    
+                    // Simula um Hash SHA-256 autêntico de transação
+                    hashTxt.innerText = "BLOCK HASH: 8f4b23c8a110de932847ffde223910aa4821ccde7721abf83921048fbcde39a1";
+                }, 1000);
+
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Soberana de Rastreabilidade e Governança Criptográfica</title>
+    <style>
+        :root {
+            --primary-deep: #0b1a0e;
+            --primary: #142817;
+            --primary-light: #2c4c31;
+            --accent-green: #70e000;
+            --accent-gold: #ccff33;
+            --bg-dark: #070f09;
+            --bg-surface: #ffffff;
+            --bg-muted: #f1f5f2;
+            --text-main: #2d3732;
+            --text-muted: #55665c;
+            --border: #d2ded5;
+            --code-bg: #1e291f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SF Pro Display', -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-muted);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Topbar de Status de Rede */
+        .network-bar {
+            background-color: var(--bg-dark);
+            color: var(--accent-green);
+            font-family: monospace;
+            font-size: 0.8rem;
+            padding: 0.4rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--primary-light);
+        }
+
+        .network-status::before {
+            content: "●";
+            margin-right: 5px;
+            animation: blink 1s infinite;
+        }
+
+        /* Header Corporativo */
+        header {
+            background: linear-gradient(180deg, var(--primary-deep), var(--primary));
+            color: white;
+            padding: 5rem 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-gold));
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        header p {
+            color: #b3cfbb;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .main-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+
+        /* Grid Superior de KPIs */
+        .kpi-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .kpi-card {
+            background: var(--bg-surface);
+            border-radius: 8px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--primary-light);
+        }
+
+        .kpi-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: monospace;
+        }
+
+        .kpi-title {
+            font-weight: 700;
+            font-size: 0.95rem;
